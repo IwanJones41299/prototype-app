@@ -12,7 +12,7 @@ const signToken = userID => {
         sub : userID
     }, "IwanJones",{expiresIn : "1h"});
 }
-
+//Register a user route
 userRouter.post('/register', (req, res) => {
     const { username,password,role } = req.body;
     User.findOne({username}, (err, user) => {
@@ -32,6 +32,7 @@ userRouter.post('/register', (req, res) => {
     });
 });
 
+//logining in route
 userRouter.post('/login',passport.authenticate('local',{session : false}), (req, res) => {
     if(req.isAuthenticated()){
         const {_id,username,role} =req.user;
@@ -41,11 +42,13 @@ userRouter.post('/login',passport.authenticate('local',{session : false}), (req,
     }
 });
 
+//loging out route
 userRouter.get('/logout',passport.authenticate('jwt',{session : false}), (req, res) => {
     res.clearCookie('access_token');
     res.json({user : {username : "", role : ""}, success : true});
 });
 
+//once a user is logged in, this allows them to create their todos
 userRouter.post('/todo',passport.authenticate('jwt',{session : false}), (req, res) => {
     const todo = new ToDo(req.body);
     todo.save(err => {
@@ -63,6 +66,7 @@ userRouter.post('/todo',passport.authenticate('jwt',{session : false}), (req, re
     });
 });
 
+//once a user is logged in, this allows the user to view their todos
 userRouter.get('/todos',passport.authenticate('jwt',{session : false}), (req, res) => {
     User.findById({_id : req.user._id}).populate('todos').exec((err,document) =>{
         if(err)
@@ -73,6 +77,7 @@ userRouter.get('/todos',passport.authenticate('jwt',{session : false}), (req, re
     });
 });
 
+//this allows an admin user to view the admin page
 userRouter.get('/admin',passport.authenticate('jwt',{session : false}), (req, res) => {
     if(req.user.role == 'admin'){
         res.status(200).json({message : {msgBody : "Welcome admin user", msgError: false}});
@@ -81,6 +86,7 @@ userRouter.get('/admin',passport.authenticate('jwt',{session : false}), (req, re
         res.status(403).json({message : {msgBody : "You are not an admin!", msgError: true}});
 });
 
+//backend and frontend synced, so when user closes the page he can revisit page and he'll still be logged in if sucessfully login before
 userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), (req, res) => {
     const {username,role} = req.user;
     res.status(200).json({isAuthenticated : true, user : {username,role}});
