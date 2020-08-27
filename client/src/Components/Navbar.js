@@ -48,9 +48,9 @@ const Navbar = props =>{
                 </Link> 
                 <Link to="/todos">
                     <li className="nav-item nav-link">
-                        Todos{/*Todos will be put inside dashboard */}
+                        Dashboard{/*Todos will be put inside dashboard */}
                     </li>
-                </Link> 
+                </Link>  
                 {
                     user.role === "admin" ? 
                     <Link to="/admin">

@@ -77,16 +77,6 @@ userRouter.get('/todos',passport.authenticate('jwt',{session : false}), (req, re
     });
 });
 
-userRouter.get('/dashboard',passport.authenticate('jwt',{session : false}), (req, res) => {
-    User.findById({_id : req.user._id}).populate('dashboard').exec((err,document) =>{
-        if(err)
-            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
-        else{
-            res.status(200).json({todos : document.todos, authenticated : true});
-        }
-    });
-});
-
 //this allows an admin user to view the admin page
 userRouter.get('/admin',passport.authenticate('jwt',{session : false}), (req, res) => {
     if(req.user.role == 'admin'){
