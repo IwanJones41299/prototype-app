@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../Services/AuthService";
 import Message from "../Components/Message";
+import SigninImage from '../Images/login.svg';
 
 const Register = (props) => {
   const [user, setUser] = useState({ username: "", password: "", role: "" });
@@ -33,50 +34,57 @@ const Register = (props) => {
     });
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <h3>Pleaes Register</h3>
-        <label htmlFor="username" className="sr-only">
-          Username:{" "}
-        </label>
-        <input
-          type="text"
-          name="username"
-          value={user.username}
-          onChange={onChange}
-          className="form-control"
-          placeholder="Enter username..."
-        />
+    <div className="form_block">
+      <div className="body text-center">
+        <form className="form-signin" onSubmit={onSubmit}>
+          <img
+            src={SigninImage}
+            className="logo"
+            width="70"
+            height="70"
+            alt="logo"
+          />
+          <h3>Register</h3>
+          <label htmlFor="username" className="sr-only">
+            Username:{" "}
+          </label>
+          <input
+            type="text"
+            name="username"
+            onChange={onChange}
+            className="form-control"
+            placeholder="Enter username..."
+          />
 
-        <label htmlFor="password" className="sr-only">
-          Password:{" "}
-        </label>
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={onChange}
-          className="form-control"
-          placeholder="Enter Password..."
-        />
+          <label htmlFor="password" className="sr-only">
+            Password:{" "}
+          </label>
+          <input
+            type="password"
+            name="password"
+            onChange={onChange}
+            className="form-control"
+            placeholder="Enter Password..."
+          />
 
-        <label htmlFor="role" className="sr-only">
-          Password:{" "}
-        </label>
-        <input
-          type="text"
-          name="role"
-          value={user.role}
-          onChange={onChange}
-          className="form-control"
-          placeholder="admin/user"
-        />
+          <label htmlFor="role" className="sr-only">
+            Password:{" "}
+          </label>
+          <input
+            type="text"
+            name="role"
+            value={user.role}
+            onChange={onChange}
+            className="form-control"
+            placeholder="admin/user"
+          />
 
-        <button className="btn btn-lg btn-primary btn-block" type="submit">
-          Register
-        </button>
-      </form>
-      {message ? <Message message={message} /> : null}
+          <button className="btn btn-lg btn-signup btn-block" type="submit">
+            Register
+          </button>
+        </form>
+        {message ? <Message message={message} /> : null}
+      </div>
     </div>
   );
 };

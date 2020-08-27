@@ -1,0 +1,68 @@
+/* @import '~antd/dist/antd.css';  --dashboard css*/
+
+html, body 
+{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-image: url(./Images/app-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.form_block
+{
+    padding-top: 10%;
+}
+
+.form-signin
+{
+    margin: 0 auto;
+    width: 30%;
+}
+
+.loginBtn
+{
+    margin-top: 10%;
+}
+
+.error_message
+{
+    color: red;
+    font-style: italic;
+    font-size: 1em;
+    margin-top: 3%;
+}
+
+.logo
+{
+    margin-bottom: 5%;
+}
+
+.btn-login:hover
+{
+    transition: .7s;
+    background-color: #fc7f8c;
+    color: white;
+}
+
+.btn-signup:hover
+{
+    transition: .7s;
+    background-color: #535464;
+    color: white;
+}
+
+.btn-logout
+{
+    margin-top: .5%;
+    transition: .7s;
+    background-color: #535464;
+    color: white;
+}
+
+.btn-logout:hover
+{
+    transition: .7s;
+    background-color: #fc7f8c;
+    color: white;
+}

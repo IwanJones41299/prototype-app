@@ -48,7 +48,7 @@ const Navbar = props =>{
                 </Link> 
                 <Link to="/todos">
                     <li className="nav-item nav-link">
-                        Todos
+                        Todos{/*Todos will be put inside dashboard */}
                     </li>
                 </Link> 
                 {
@@ -59,7 +59,7 @@ const Navbar = props =>{
                         </li>
                     </Link> : null
                 }  
-                <Link to="/logout">
+                <Link to="/">
                 <button type="button" 
                   className="btn btn-link nav-item nav-link" 
                   onClick={onClickLogoutHandler}>Logout</button>
