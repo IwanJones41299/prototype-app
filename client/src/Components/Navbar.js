@@ -48,7 +48,7 @@ const Navbar = props =>{
                 </Link> 
                 <Link to="/todos">
                     <li className="nav-item nav-link">
-                        Dashboard{/*Todos will be put inside dashboard */}
+                        Todos{/*Todos will be put inside dashboard */}
                     </li>
                 </Link>  
                 {
