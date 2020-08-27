@@ -5,6 +5,7 @@ import Home from "./Components/Home";
 import Todos from './Components/Todos';
 import Register from './Components/Register';
 import Admin from './Components/Admin';
+import Dashboard from './Components/Dashboard';
 import PrivateRoute from './hocs/PrivateRoute';
 import UnPrivateRoute from './hocs/UnprivateRoute';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -19,6 +20,7 @@ function App() {
       <UnPrivateRoute path = "/register" component={Register} />
       <PrivateRoute path = "/todos" roles={["user", "admin"]} component={Todos} />
       <PrivateRoute path = "/admin" roles={["admin"]} component={Admin} />
+      <PrivateRoute path = "/dashboard" roles={["user"]} component={Dashboard} />
     </Router>
   );
 }
