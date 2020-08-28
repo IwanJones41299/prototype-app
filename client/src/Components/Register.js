@@ -44,7 +44,7 @@ const Register = (props) => {
             height="70"
             alt="logo"
           />
-          <h3>Register</h3>
+          <h3 className="_Title">Register</h3>
           <label htmlFor="username" className="sr-only">
             Username:{" "}
           </label>
@@ -79,7 +79,7 @@ const Register = (props) => {
             placeholder="admin/user"
           />
 
-          <button className="btn btn-lg btn-signup btn-block" type="submit">
+          <button className="btn btn-lg btn-login btn-block" type="submit">
             Register
           </button>
         </form>

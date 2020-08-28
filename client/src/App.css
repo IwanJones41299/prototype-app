@@ -38,3 +38,25 @@ html, body
     background-color: #535464;
     color: white;
 }
+
+._homePage
+{
+    text-align: center;
+    margin-top: 5%;
+}
+
+._Title
+{
+    color: #fc7f8c;
+}
+
+._subTitle 
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.home-btn-one
+{
+    width: 20%;
+}

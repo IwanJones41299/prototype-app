@@ -31,7 +31,7 @@ const Login = (props) => {
       <div className="body text-center">
         <form className="form-signin" onSubmit={onSubmit}>
           <img src={SigninImage} className="logo" width="70" height="70" alt="logo" />
-          <h3>Sign In</h3>
+          <h3 className="_Title">Sign In</h3>
           <label htmlFor="username" className="sr-only">
             Username:{" "}
           </label>
