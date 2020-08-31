@@ -77,14 +77,6 @@ userRouter.get('/todos',passport.authenticate('jwt',{session : false}), (req, re
     });
 });
 
-userRouter.get('/dashboard',passport.authenticate('jwt',{session : false}), (req, res) => {
-    if(req.user.role == 'user'){
-        res.status(200).json({message : {msgBody : "Welcome admin user", msgError: false}});
-    }
-    else
-        res.status(403).json({message : {msgBody : "You are not an admin!", msgError: true}});
-});
-
 //this allows an admin user to view the admin page
 userRouter.get('/admin',passport.authenticate('jwt',{session : false}), (req, res) => {
     if(req.user.role == 'admin'){

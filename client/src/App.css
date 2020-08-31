@@ -60,3 +60,8 @@ html, body
 {
     width: 20%;
 }
+
+.navbar
+{
+    align-content: center;
+}
